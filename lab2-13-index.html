@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        /* 表格样式 */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;  /* 合并边框 */
+            margin: 20px 0;
+        }
+        .info-table th, .info-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .info-table th {
+            background-color: #f2f2f2;
+            color: #333;
+            width: 30%;
+        }
+        .info-table td {
+            color: #555;
+        }
+        /* 列表样式（技能证书、兴趣爱好） */
+        .section-title {
+            font-size: 18px;
+            color: #2c3e50;
+            margin: 25px 0 15px;
+            padding-left: 10px;
+            border-left: 4px solid #3498db;
+        }
+        .custom-list {
+            list-style-type: none;  /* 隐藏默认列表符号 */
+            padding-left: 20px;
+        }
+        .custom-list li {
+            margin: 10px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+        .custom-list li::before {
+            content: "✓";  /* 字体图标（可替换为FontAwesome图标） */
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        /* 自我评价 */
+        .self-intro {
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <h1>个人简历</h1>
+        
+        <!-- 个人信息表格（使用rowspan和colspan） -->
+        <table class="info-table">
+            <caption style="font-weight: bold; margin-bottom: 10px; color: #333;">基本信息</caption>
+            <tr>
+                <th>姓名</th>
+                <td>徐崇恒</td>
+                <th rowspan="4">照片</th>  <!-- 合并4行 -->
+                <td rowspan="4"><img src="peng.jpg" alt="peng"style="width:120px; height:160px;">
+            </tr>
+            <tr>
+                <th>年龄</th>
+                <td>18岁</td>
+            </tr>
+            <tr>
+                <th>学历</th>
+                <td>本科</td>
+            </tr>
+            <tr>
+                <th>专业</th>
+                <td>软件工程</td>
+            </tr>
+            <tr>
+                <th>项目经历</th>
+                <td colspan="3">2025年软件杯大赛本科组 - 基于AI的智能垃圾分类系统</td>  <!-- 合并3列 -->
+            </tr>
+        </table>
+
+        <!-- 技能证书（有序列表ol） -->
+        <h3 class="section-title">技能证书</h3>
+        <ol class="custom-list">
+            <li>计算机二级（C语言）证书</li>
+            <li>英语六级证书（CET-6，550分）</li>
+            <li>阿里云ACA云计算认证</li>
+            <li>普通话二级甲等证书</li>
+        </ol>
+
+        <!-- 兴趣爱好（有序列表ol） -->
+        <h3 class="section-title">兴趣爱好</h3>
+        <ol class="custom-list">
+            <li>编程开发（Python、JavaScript）</li>
+            <li>算法竞赛（LeetCode周赛参与者）</li>
+            <li>摄影（擅长风光与人文纪实）</li>
+        </ol>
+
+        <!-- 自我评价 -->
+        <h3 class="section-title">自我评价</h3>
+        <div class="self-intro">
+            本人性格开朗，责任心强，具备扎实的计算机专业基础和良好的团队协作能力。在学习期间，系统掌握了数据结构、算法设计、数据库原理等核心课程，并通过实践项目提升了问题解决能力。例如，在2025年软件杯大赛中，我独立负责智能垃圾分类系统的算法模块开发，通过深度学习模型实现了垃圾图像的精准分类，最终团队获得省级二等奖。  
+            <br><br>
+            我注重持续学习，业余时间积极参与开源项目和技术社区交流，不断拓展技术视野。同时，我具备较强的沟通能力和抗压能力，能够快速适应新环境并高效完成任务。未来希望在软件开发领域深耕，将所学知识转化为实际价值，为团队和企业贡献力量。
+        </div>
+    </div>
+</body>
+</html>
