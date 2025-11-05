@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字展销平台 - 图书商城</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--light-color);
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        nav ul {
+            display: flex;
+        }
+        
+        nav li {
+            margin-left: 20px;
+            position: relative;
+        }
+        
+        nav a {
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        nav a:hover {
+            background-color: var(--primary-color);
+        }
+       
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: var(--shadow);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .dropdown-content a {
+            color: var(--dark-color);
+            padding: 12px 16px;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .dropdown-content a:hover {
+            background-color: var(--light-color);
+            color: var(--primary-color);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">数字<span>展销</span>平台</div>
+                <nav>
+                    <ul>
+                        <li><a href=" ">首页</a ></li>
+                        <li class="dropdown">
+                            <a href="#">图书分类</a >
+                            <div class="dropdown-content">
+                                <a href="#">文学小说</a >
+                                <a href="#">经济管理</a >
+                                <a href="#">科学技术</a >
+                                <a href="#">人文社科</a >
+                                <a href="#">生活艺术</a >
+                            </div>
+                        </li>
+                        <li><a href="#">热门推荐</a ></li>
+                        <li><a href="#">新书上市</a ></li>
+                        <li><a href="#">促销活动</a ></li>
+                        <li><a href="#">关于我们</a ></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+<main class="container">
+    <div class="content-wrapper">
+        <aside class="sidebar-left">
+            <h3 class="category-title">图书分类</h3>
+            <ul class="category-list">
+                <li>文学小说</li>
+                <li>经济管理</li>
+                <li>科学技术</li>
+                <li>人文社科</li>
+                <li>生活艺术</li>
+                <li>教育学习</li>
+                <li>儿童读物</li>
+                <li>漫画绘本</li>
+                <li>考试教材</li>
+                <li>外语学习</li>
+            </ul>
+        </aside>
+
+        <section class="content-main">
+            <div class="section">
+                <h2 class="section-title">热门推荐</h2>
+                <div class="hot-books">
+                    <div class="book-card">
+                        <div class="book-img">
+                        <img src="https:/images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="深入理解计算机系统">
+                            <div class="book-overlay">
+                                <div class="book-detail">
+                                    <h3>深入理解计算机系统</h3>
+                                    <p>作者：Randal E. Bryant</p >
+                                    <p>出版社：机械工业出版社</p >
+                                    <p>评分：★★★★★</p >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">深入理解计算机系统</div>
+                            <div class="book-price">¥89.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card">
+                        <div class="book-img">
+                        <img src="https:/images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="JavaScript高级程序设计">
+                            <div class="book-overlay">
+                                <div class="book-detail">
+                                    <h3>JavaScript高级程序设计</h3>
+                                    <p>作者：Nicholas C. Zakas</p >
+                                    <p>出版社：人民邮电出版社</p >
+                                    <p>评分：★★★★☆</p >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">JavaScript高级程序设计</div>
+                            <div class="book-price">¥99.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card">
+                        <div class="book-img">
+                        <img src="https:/images.unsplash.com/photo-1551029506-0807df4e2031?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="设计心理学">
+                            <div class="book-overlay">
+                                <div class="book-detail">
+                                    <h3>设计心理学</h3>
+                                    <p>作者：Donald Norman</p >
+                                    <p>出版社：中信出版社</p >
+                                    <p>评分：★★★★☆</p >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">设计心理学</div>
+                            <div class="book-price">¥68.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card">
+                        <div class="book-img">
+                        <img src="https:/images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="人类简史">
+                            <div class="book-overlay">
+                                <div class="book-detail">
+                                    <h3>人类简史</h3>
+                                    <p>作者：Yuval Noah Harari</p >
+                                    <p>出版社：中信出版社</p >
+                                    <p>评分：★★★★★</p >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">人类简史</div>
+                            <div class="book-price">¥68.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card">
+                        <div class="book-img">
+                        <img src="https:/images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="原则">
+                            <div class="book-overlay">
+                                <div class="book-detail">
+                                    <h3>原则</h3>
+                                    <p>作者：Ray Dalio</p >
+                                    <p>出版社：中信出版社</p >
+                                    <p>评分：★★★★☆</p >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">原则</div>
+                            <div class="book-price">¥98.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card">
+                        <div class="book-img">
+                        <img src="https:/images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="三体">
+                            <div class="book-overlay">
+                                <div class="book-detail">
+                                    <h3>三体</h3>
+                                    <p>作者：刘慈欣</p >
+                                    <p>出版社：重庆出版社</p >
+                                    <p>评分：★★★★★</p >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">三体</div>
+                            <div class="book-price">¥32.00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <style>
+    main {
+        margin-top: 80px;
+        padding: 20px 0;
+    }
+    
+    .content-wrapper {
+        display: flex;
+        gap: 20px;
+    }
+    
+    .content-main {
+        width: 55%;
+    }
+    
+    .section {
+        background-color: white;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+    }
+    
+    .section-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--primary-color);
+        color: var(--secondary-color);
+    }
+    
+    .hot-books {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .book-card {
+        width: calc(33.333% - 10px);
+        border: 1px solid #eee;
+        border-radius: 6px;
+        overflow: hidden;
+        transition: var(--transition);
+        position: relative;
+        cursor: pointer;
+    }
+    
+    .book-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .book-img {
+        width: 100%;
+        height: 180px;
+        background-color: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #999;
+        font-size: 14px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .book-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+    }
+    
+    .book-card:hover .book-img img {
+        transform: scale(1.05);
+    }
+    
+    .book-info {
+        padding: 10px;
+    }
+    
+    .book-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .book-price {
+        color: var(--accent-color);
+        font-weight: bold;
+    }
+    
+    .book-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: var(--transition);
+    }
+    
+    .book-card:hover .book-overlay {
+        opacity: 1;
+    }
+    
+    .book-detail {
+        color: white;
+        text-align: center;
+        padding: 15px;
+    }
+</style> 
+            <div class="section new-books">
+                <h2 class="section-title">新书上市</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>书名</th>
+                            <th>作者</th>
+                            <th>出版社</th>
+                            <th>价格</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Web前端开发实战</td>
+                            <td>张明</td>
+                            <td>人民邮电出版社</td>
+                            <td>¥69.00</td>
+                        </tr>
+                        <tr>
+                            <td>Python数据分析</td>
+                            <td>李华</td>
+                            <td>清华大学出版社</td>
+                            <td>¥79.00</td>
+                        </tr>
+                        <tr>
+                            <td>人工智能导论</td>
+                            <td>王强</td>
+                            <td>机械工业出版社</td>
+                            <td>¥89.00</td>
+                        </tr>
+                        <tr>
+                            <td>设计思维与方法</td>
+                            <td>赵丽</td>
+                            <td>电子工业出版社</td>
+                            <td>¥59.00</td>
+                        </tr>
+                        <tr>
+                            <td>数据可视化实战</td>
+                            <td>刘伟</td>
+                            <td>人民邮电出版社</td>
+                            <td>¥75.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+<style>
+    .new-books table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .new-books th, .new-books td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .new-books th {
+        background-color: var(--light-color);
+        color: var(--secondary-color);
+    }
+    
+    .new-books tr:hover {
+        background-color: #f9f9f9;
+    }
+    
+    .sidebar-left {
+        width: 20%;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        position: relative;
+    }
+    
+    .category-title {
+        font-size: 18px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--primary-color);
+        color: var(--secondary-color);
+    }
+    
+    .category-list li {
+        margin-bottom: 10px;
+        padding: 8px 10px;
+        border-radius: 4px;
+        transition: var(--transition);
+        cursor: pointer;
+    }
+    
+    .category-list li:hover {
+        background-color: var(--light-color);
+        color: var(--primary-color);
+        transform: translateX(5px);
+    }
+</style>
+        <aside class="sidebar-right">
+            <div class="filter-menu">
+                <h3 class="category-title">筛选条件</h3>
+                <div class="filter-options">
+                    <button class="filter-btn">价格从低到高</button>
+                    <button class="filter-btn">价格从高到低</button>
+                    <button class="filter-btn">评分最高</button>
+                </div>
+                <div class="filter-options">
+                    <button class="filter-btn">文学类</button>
+                    <button class="filter-btn">科技类</button>
+                    <button class="filter-btn">经管类</button>
+                </div>
+            </div>
+
+            <div class="promotion">
+                <h3 class="category-title">促销活动</h3>
+                <div class="promo-item">
+                    <div class="promo-title">全场满200减30</div>
+                    <div class="promo-desc">购物满200元立减30元，上不封顶</div>
+                </div>
+                <div class="promo-item">
+                    <div class="promo-title">新用户专享优惠</div>
+                    <div class="promo-desc">新用户注册即送50元优惠券</div>
+                </div>
+                <div class="promo-item">
+                    <div class="promo-title">会员日特惠</div>
+                    <div class="promo-desc">每月15日会员专享8折优惠</div>
+                </div>
+                <div class="promo-item">
+                    <div class="promo-title">限时秒杀</div>
+                    <div class="promo-desc">每日10点热门图书限时秒杀</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<style>
+    .sidebar-right {
+        width: 25%;
+    }
+    
+    .promotion {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        margin-bottom: 20px;
+    }
+    
+    .promo-item {
+        margin-bottom: 15px;
+        padding: 10px;
+        background-color: var(--light-color);
+        border-radius: 6px;
+        transition: var(--transition);
+        cursor: pointer;
+    }
+    
+    .promo-item:hover {
+        background-color: #e0e0e0;
+        transform: translateX(5px);
+    }
+    
+    .promo-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    
+    .filter-menu {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        margin-bottom: 20px;
+    }
+    
+    .filter-options {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .filter-btn {
+        padding: 8px 15px;
+        background-color: var(--light-color);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+    
+    .filter-btn:hover {
+        background-color: var(--primary-color);
+        color: white;
+    }
+</style>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">数字展销平台</div>
+                <div class="footer-text">初心至善 匠心育人</div>
+                <div class="footer-text">© 2025 数字展销平台 版权所有</div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .footer-text {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 1200px) {
+            .container {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .sidebar-left, .content-main, .sidebar-right {
+                width: 100%;
+            }
+            
+            .book-card {
+                width: calc(50% - 10px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 5px;
+            }
+            
+            .book-card {
+                width: 100%;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</body>
+</html>
