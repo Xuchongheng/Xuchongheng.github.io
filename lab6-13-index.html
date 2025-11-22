@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>先锋书店 - 图书商城</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--light-color);
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        nav ul {
+            display: flex;
+        }
+        
+        nav li {
+            margin-left: 20px;
+            position: relative;
+        }
+        
+        nav a {
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        nav a:hover {
+            background-color: var(--primary-color);
+        }
+       
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: var(--shadow);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .dropdown-content a {
+            color: var(--dark-color);
+            padding: 12px 16px;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .dropdown-content a:hover {
+            background-color: var(--light-color);
+            color: var(--primary-color);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation: modalFade 0.3s;
+        }
+        
+        @keyframes modalFade {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h2 {
+            font-size: 1.4rem;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .modal-body {
+            padding: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+        
+        .remember-me input {
+            margin-right: 0.5rem;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(45deg, #3498db, #2ecc71);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .form-footer {
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .form-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+        
+.carousel {
+    margin-top: 80px;
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-slides {
+    width: 300%;
+    height: 100%;
+    display: flex;
+    animation: slide 15s infinite;
+}
+
+.carousel-slide {
+    width: 33.333%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-slide:nth-child(1) {
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+}
+
+.carousel-slide:nth-child(2) {
+    background: linear-gradient(135deg, #e74c3c, #f39c12);
+}
+
+.carousel-slide:nth-child(3) {
+    background: linear-gradient(135deg, #2ecc71, #3498db);
+}
+
+.carousel-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 80%;
+}
+
+.carousel-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(0); }
+    38% { transform: translateX(-33.333%); }
+    66% { transform: translateX(-33.333%); }
+    71% { transform: translateX(-66.666%); }
+    100% { transform: translateX(-66.666%); }
+}
+
+main {
+    padding: 20px 0;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.content-main {
+    width: 55%;
+}
+
+.section {
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.section-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.hot-books {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.book-card {
+    width: calc(33.333% - 10px);
+    border: 1px solid #eee;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    cursor: pointer;
+    transform-origin: center bottom;
+}
+
+.book-card:hover {
+    transform: translateX(10px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.book-img {
+    width: 100%;
+    height: 180px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.book-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.book-card:hover .book-img img {
+    transform: scale(1.1);
+}
+
+.book-info {
+    padding: 10px;
+}
+
+.book-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.book-price {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.book-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.book-card:hover .book-overlay {
+    opacity: 1;
+}
+
+.book-detail {
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+.new-books table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.new-books th, .new-books td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.new-books th {
+    background-color: var(--light-color);
+    color: var(--secondary-color);
+}
+
+.new-books tr {
+    transition: all 0.3s ease;
+}
+
+.new-books tr:hover {
+    background-color: #f9f9f9;
+    transform: translateX(5px);
+}
+
+.sidebar-left {
+    width: 20%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.category-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.category-list li {
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-list li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.category-list li:hover::before {
+    left: 100%;
+}
+
+.category-list li:hover {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.sidebar-right {
+    width: 25%;
+}
+
+.promotion {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.promo-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: var(--light-color);
+    border-radius: 6px;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.promo-item:hover {
+    background-color: #e0e0e0;
+    transform: translateX(5px) scale(1.02);
+}
+
+.promo-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.filter-menu {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.filter-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.filter-btn {
+    padding: 8px 15px;
+    background-color: var(--light-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: scale(1.05);
+}
+        
+        .icon-animated {
+            display: inline-block;
+            transition: transform 0.5s ease;
+        }
+        
+        .icon-animated:hover {
+            transform: rotate(360deg);
+        }
+        
+        
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+            margin-left: 20px;
+        }
+        
+        .nav-icon {
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .nav-icon:hover {
+            color: var(--accent-color);
+            transform: scale(1.2) rotate(15deg);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .footer-text {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+       
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+       
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+       
+        @media (max-width: 1200px) {
+            .container {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .sidebar-left, .content-main, .sidebar-right {
+                width: 100%;
+            }
+            
+            .book-card {
+                width: calc(50% - 10px);
+            }
+            
+            .carousel {
+                height: 300px;
+            }
+            
+            .carousel-content h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 5px;
+            }
+            
+            .book-card {
+                width: 100%;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .carousel {
+                height: 250px;
+            }
+            
+            .carousel-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .carousel-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">先锋<span>书店</span></div>
+                <nav>
+                    <ul>
+                        <li><a href=" ">首页</a ></li>
+                        <li class="dropdown">
+                            <a href="#">图书分类</a >
+                            <div class="dropdown-content">
+                                <a href="#">文学小说</a >
+                                <a href="#">经济管理</a >
+                                <a href="#">科学技术</a >
+                                <a href="#">人文社科</a >
+                                <a href="#">生活艺术</a >
+                            </div>    
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">热销推荐</a >
+                            <div class="dropdown-content">
+                                <a href="#">《此刻是春天》</a >
+                                <a href="#">《人间信》</a >
+                                <a href="#">《凤凰籽》</a >
+                                <a href="#">《人工智能底层逻辑》</a >
+                                <a href="#">《心安即是归处》</a >
+                            </div>
+                        </li>
+                        <li><a href="#">新书上市</a ></li>
+                        <li><a href="#">促销活动</a ></li>
+                        <li><a href="#">关于我们</a ></li>
+                        <li><a href="#" id="loginLink">登录/注册</a ></li>
+                    </ul>
+                </nav>
+                <div class="nav-icons">
+                    <div class="nav-icon icon-animated">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="nav-icon icon-animated">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+   
+    <div class="carousel">
+        <div class="carousel-slides">
+            <div class="carousel-slide">
+                <div class="carousel-content floating">
+                    <h2>发现你的下一本好书</h2>
+                    <p>阅读好书，治愈心灵</p >
+                    <button class="filter-btn pulse">立即探索</button>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <div class="carousel-content floating">
+                    <h2>新书限时特惠</h2>
+                    <p>全场新书8折起，会员享额外优惠</p >
+                    <button class="filter-btn pulse">查看详情</button>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <div class="carousel-content floating">
+                    <h2>会员专享福利</h2>
+                    <p>注册即送50元优惠券，专享会员价</p >
+                    <button class="filter-btn pulse">加入会员</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>用户登录</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginUsername">用户名/邮箱</label>
+                        <input type="text" id="loginUsername" class="form-control" placeholder="请输入用户名或邮箱" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">密码</label>
+                        <input type="password" id="loginPassword" class="form-control" placeholder="请输入密码" required>
+                    </div>
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">记住我</label>
+                    </div>
+                    <button type="submit" class="submit-btn">登录</button>
+                    <div class="form-footer">
+                        <p>还没有账号？<a href="#" id="switchToRegister">立即注册</a ></p >
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <main class="container">
+        <div class="content-wrapper">
+            <aside class="sidebar-left">
+                <h3 class="category-title">图书分类</h3>
+                <ul class="category-list">
+                    <li>文学小说</li>
+                    <li>经济管理</li>
+                    <li>科学技术</li>
+                    <li>人文社科</li>
+                    <li>生活艺术</li>
+                    <li>教育学习</li>
+                    <li>儿童读物</li>
+                    <li>漫画绘本</li>
+                    <li>考试教材</li>
+                    <li>外语学习</li>
+                </ul>
+            </aside>
+            <section class="content-main">
+    <div class="section">
+        <h2 class="section-title">热门推荐</h2>
+        <div class="hot-books">
+            <div class="book-card">
+                <div class="book-img">
+                <img src="one.jpg" alt="C语言程序设计">    
+                    <div style="background-color:#3498db; color:white; display:flex; align-items:center; justify-content:center; height:100%;">
+                        C语言程序设计
+                    </div>
+                    <div class="book-overlay">
+                        <div class="book-detail">
+                            <h3>C语言程序设计</h3>
+                            <p>作者：谭浩强</p >
+                            <p>出版社：机械工业出版社</p >
+                            <p>简介：全书遵循"由浅入深、理论结合实践"原则。</p >
+                        </div>
+                    </div>
+                </div>
+                <div class="book-info">
+                    <div class="book-title">深入理解计算机系统</div>
+                    <div class="book-price">¥89.00</div>
+                </div>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-img">
+                    <img src="two.jpg" alt="百年孤独">
+                    <div style="background-color:#e74c3c; color:white; display:flex; align-items:center; justify-content:center; height:100%;">
+                        百年孤独
+                    </div>
+                    <div class="book-overlay">
+                        <div class="book-detail">
+                            <h3>JavaScript高级程序设计</h3>
+                            <p>作者：加西亚·马尔克斯</p >
+                            <p>出版社：人民邮电出版社</p >
+                            <p>简介：讲述了布恩迪亚家族七代人的兴衰史，家族成员经历了复杂的爱情、战争与权力斗争。</p >
+                        </div>
+                    </div>
+                </div>
+                <div class="book-info">
+                    <div class="book-title">JavaScript高级程序设计</div>
+                    <div class="book-price">¥99.00</div>
+                </div>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-img">
+                <img src="six.jpg" alt="月亮与六便士">
+                    <div style="background-color:#2ecc71; color:white; display:flex; align-items:center; justify-content:center; height:100%;">
+                        月亮与六便士
+                    </div>
+                    <div class="book-overlay">
+                        <div class="book-detail">
+                            <h3>月亮与六便士</h3>
+                            <p>作者：Donald Norman</p >
+                            <p>出版社：中信出版社</p >
+                            <p>简介:主人公思特里克兰德，与土著姑娘爱塔结婚，在病重失明之际，仍坚持完成了一幅壁画，并让爱塔在他死后将其烧毁 。</p >
+                        </div>
+                    </div>
+                </div>
+                <div class="book-info">
+                    <div class="book-title">月亮与六便士</div>
+                    <div class="book-price">¥68.00</div>
+                </div>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-img">
+                    <img src="book4.jpg" alt="人类简史">
+                    <div style="background-color:#9b59b6; color:white; display:flex; align-items:center; justify-content:center; height:100%;">
+                        人类简史
+                    </div>
+                    <div class="book-overlay">
+                        <div class="book-detail">
+                            <h3>人类简史</h3>
+                            <p>作者：Yuval Noah Harari</p >
+                            <p>出版社：中信出版社</p >
+                            <p>简介：跳出传统历史叙事，既回顾人类文明的成就，也反思工业化、全球化带来的不平等、生态危机等问题。</p >
+                        </div>
+                    </div>
+                </div>
+                <div class="book-info">
+                    <div class="book-title">人类简史</div>
+                    <div class="book-price">¥68.00</div>
+                </div>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-img">
+                     <img src="book5.jpg" alt="原则">
+                    <div style="background-color:#f39c12; color:white; display:flex; align-items:center; justify-content:center; height:100%;">
+                        原则
+                    </div>
+                    <div class="book-overlay">
+                        <div class="book-detail">
+                            <h3>原则</h3>
+                            <p>作者：Ray Dalio</p >
+                            <p>出版社：中信出版社</p >
+                            <p>简介：通过自传追溯达利欧从普通中产少年到金融巨鳄的奋斗历程，揭秘桥水基金从两居室公寓起步，历经危机屹立40余年的发展故事。</p >
+                        </div>
+                    </div>
+                </div>
+                <div class="book-info">
+                    <div class="book-title">原则</div>
+                    <div class="book-price">¥98.00</div>
+                </div>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-img">
+                    <img src="book6.jpg" alt="三体">
+                    <div style="background-color:#1abc9c; color:white; display:flex; align-items:center; justify-content:center; height:100%;">
+                        三体
+                    </div>
+                    <div class="book-overlay">
+                        <div class="book-detail">
+                            <h3>三体</h3>
+                            <p>作者：刘慈欣</p >
+                            <p>出版社：重庆出版社</p >
+                            <p>简介：《三体》：地球文明暴露坐标后，与三体文明展开跨星际的生存竞争，揭示宇宙黑暗森林法则与人性挣扎。</p >
+                        </div>
+                    </div>
+                </div>
+                <div class="book-info">
+                    <div class="book-title">三体</div>
+                    <div class="book-price">¥32.00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section new-books">
+        <h2 class="section-title">新书上市</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>书名</th>
+                    <th>作者</th>
+                    <th>出版社</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>《软技能：代码之外的生存指南》</td>
+                    <td>John Sonmez</td>
+                    <td>人民邮电出版社</td>
+                    <td>¥49.00</td>
+                </tr>
+                <tr>
+                    <td>《代码大全》</td>
+                    <td>Steve McConnell</td>
+                    <td>清华大学出版社</td>
+                    <td>¥59.00</td>
+                </tr>
+                <tr>
+                    <td>《程序员修炼之道》</td>
+                    <td>王强</td>
+                    <td>机械工业出版社</td>
+                    <td>¥49.00</td>
+                </tr>
+                <tr>
+                    <td>《Java编程思想》</td>
+                    <td>赵丽</td>
+                    <td>电子科技大学出版社</td>
+                    <td>¥39.00</td>
+                </tr>
+                <tr>
+                    <td>《算法导论》</td>
+                    <td>刘伟</td>
+                    <td>北京大学出版社</td>
+                    <td>¥35.00</td>
+                </tr>
+            </tbody>
+        </table>            
+    </div>
+</section>
+            <aside class="sidebar-right">
+                <div class="filter-menu">
+                    <h3 class="category-title">筛选条件</h3>
+                    <div class="filter-options">
+                        <button class="filter-btn">价格从低到高</button>
+                        <button class="filter-btn">价格从高到低</button>
+                        <button class="filter-btn">评分最高</button>
+                    </div>
+                    <div class="filter-options">
+                        <button class="filter-btn">文学类</button>
+                        <button class="filter-btn">科技类</button>
+                        <button class="filter-btn">经管类</button>
+                    </div>
+                </div>
+
+                <div class="promotion">
+                    <h3 class="category-title">促销活动</h3>
+                    <div class="promo-item">
+                        <div class="promo-title">全场满200减30</div>
+                        <div class="promo-desc">购物满200元立减30元，上不封顶</div>
+                    </div>
+                    <div class="promo-item">
+                        <div class="promo-title">新用户专享优惠</div>
+                        <div class="promo-desc">新用户注册即送50元优惠券</div>
+                    </div>
+                    <div class="promo-item">
+                        <div class="promo-title">会员日特惠</div>
+                        <div class="promo-desc">每月15日会员专享8折优惠</div>
+                    </div>
+                    <div class="promo-item">
+                        <div class="promo-title">限时秒杀</div>
+                        <div class="promo-desc">每日10点热门图书限时秒杀</div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">先锋书店</div>
+                <div class="footer-text">初心至善 匠心育人</div>
+                <div class="footer-text">© 2025 先锋书店 版权所有</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+        const loginLink = document.getElementById('loginLink');
+        const loginModal = document.getElementById('loginModal');
+        const closeBtn = document.querySelector('.close-btn');
+        const loginForm = document.getElementById('loginForm');
+        const switchToRegister = document.getElementById('switchToRegister');
+
+        
+        loginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'flex';
+        });
+
+       
+        closeBtn.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+        });
+
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+        });
+
+        
+        switchToRegister.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('跳转到注册页面');
+        });
+
+        
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            
+            alert(`登录成功！\n用户名: ${username}`);
+            loginModal.style.display = 'none';
+            loginForm.reset();
+        });
+    </script>
+</body>
+</html>
