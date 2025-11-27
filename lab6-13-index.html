@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>先锋书店 - 图书商城</title>
+    <title>先锋书店 - 数字图书展销平台</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -123,130 +123,128 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
-        
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .modal-content {
-            background-color: white;
-            border-radius: 8px;
-            width: 90%;
-            max-width: 450px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            animation: modalFade 0.3s;
-        }
-        
-        @keyframes modalFade {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .modal-header {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 1.2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .modal-header h2 {
-            font-size: 1.4rem;
-        }
-        
-        .close-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        .modal-body {
-            padding: 1.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: border 0.3s;
-        }
-        
-        .form-control:focus {
-            border-color: var(--primary-color);
-            outline: none;
-        }
-        
-        .remember-me {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.2rem;
-        }
-        
-        .remember-me input {
-            margin-right: 0.5rem;
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 0.8rem;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .submit-btn:hover {
-            background: linear-gradient(45deg, #3498db, #2ecc71);
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
-        }
-        
-        .form-footer {
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-        .form-footer a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-        
-        .form-footer a:hover {
-            text-decoration: underline;
-        }
-        
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    animation: modalFade 0.3s;
+}
+
+@keyframes modalFade {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    font-size: 1.4rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+.form-control:focus { 
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.remember-me input {
+    margin-right: 0.5rem;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(45deg, #3498db, #2ecc71);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.form-footer {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.form-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
 .carousel {
     margin-top: 80px;
     position: relative;
@@ -398,12 +396,10 @@ main {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 .book-price {
     color: var(--accent-color);
     font-weight: bold;
 }
-
 .book-overlay {
     position: absolute;
     top: 0;
@@ -559,17 +555,16 @@ main {
     color: white;
     transform: scale(1.05);
 }
-        
-        .icon-animated {
-            display: inline-block;
-            transition: transform 0.5s ease;
-        }
-        
-        .icon-animated:hover {
-            transform: rotate(360deg);
-        }
-        
-         .category-list li i {
+
+.icon-animated {
+    display: inline-block;
+    transition: transform 0.5s ease;
+}
+
+.icon-animated:hover {
+    transform: rotate(360deg);
+}
+        .category-list li i {
             width: 20px;
             margin-right: 10px;
             text-align: center;
@@ -608,7 +603,7 @@ main {
         .form-footer a i {
             margin-right: 5px;
         }
-
+        
         .nav-icons {
             display: flex;
             gap: 15px;
@@ -651,7 +646,6 @@ main {
             opacity: 0.8;
         }
         
-       
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -662,7 +656,6 @@ main {
             animation: float 3s ease-in-out infinite;
         }
         
-       
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -673,7 +666,6 @@ main {
             animation: pulse 2s infinite;
         }
         
-       
         @media (max-width: 1200px) {
             .container {
                 width: 100%;
@@ -747,30 +739,31 @@ main {
                 <div class="logo">先锋<span>书店</span></div>
                 <nav>
                     <ul>
-                        <li><a href=" ">首页</a ></li>
+                        <li><a href=" "><i class="fas fa-home"></i> 首页</a ></li>
                         <li class="dropdown">
-                            <a href="#">图书分类</a >
+                            <a href="#"><i class="fas fa-th-list"></i> 图书分类</a >
                             <div class="dropdown-content">
-                                <a href="#">文学小说</a >
-                                <a href="#">经济管理</a >
-                                <a href="#">科学技术</a >
-                                <a href="#">人文社科</a >
-                                <a href="#">生活艺术</a >
+                                <a href="#"><i class="fas fa-book"></i> 文学小说</a >
+                                <a href="#"><i class="fas fa-chart-line"></i> 经济管理</a >
+                                <a href="#"><i class="fas fa-laptop-code"></i> 科学技术</a >
+                                <a href="#"><i class="fas fa-users"></i> 人文社科</a >
+                                <a href="#"><i class="fas fa-palette"></i> 生活艺术</a >
                             </div>    
                         </li>
                         <li class="dropdown">
-                            <a href="#">热销推荐</a >
+                            <a href="#"><i class="fas fa-fire"></i> 热销推荐</a >
                             <div class="dropdown-content">
-                                <a href="#"><i class="fas fa-fire"></i>《此刻是春天》</a >
-                                <a href="#"><i class="fas fa-fire"></i> 《人间信》</a >
-                                <a href="#"><i class="fas fa-fire"></i>《凤凰籽》</a >
-                                <a href="#"><i class="fas fa-fire"></i>《心安即是归处》</a >
+                                <a href="#"><i class="fas fa-book"></i> 《此刻是春天》</a >
+                                <a href="#"><i class="fas fa-book"></i> 《人间信》</a >
+                                <a href="#"><i class="fas fa-book"></i> 《凤凰籽》</a >
+                                <a href="#"><i class="fas fa-book"></i> 《人工智能底层逻辑》</a >
+                                <a href="#"><i class="fas fa-book"></i> 《心安即是归处》</a >
                             </div>
                         </li>
                         <li><a href="#"><i class="fas fa-book-open"></i> 新书上市</a ></li>
                         <li><a href="#"><i class="fas fa-tags"></i> 促销活动</a ></li>
                         <li><a href="#"><i class="fas fa-info-circle"></i> 关于我们</a ></li>
-                        <li><a href="#" id="loginLink"><li><i class="fas fa-user"></i>登录/注册</a ></li>
+                        <li><a href="#" id="loginLink"><i class="fas fa-user"></i> 登录/注册</a ></li>
                     </ul>
                 </nav>
                 <div class="nav-icons">
@@ -785,14 +778,13 @@ main {
         </div>
     </header>
     
-   
     <div class="carousel">
         <div class="carousel-slides">
             <div class="carousel-slide">
                 <div class="carousel-content floating">
                     <h2>发现你的下一本好书</h2>
-                    <p>阅读好书，治愈心灵</p >
-                    <button class="filter-btn pulse">立即探索</button>
+                    <p>海量图书资源，满足您的阅读需求</p >
+                    <button class="filter-btn pulse"><i class="fas fa-compass"></i> 立即探索</button>
                 </div>
             </div>
             <div class="carousel-slide">
@@ -811,9 +803,8 @@ main {
             </div>
         </div>
     </div>
-    
-    
-    <div class="modal" id="loginModal">
+
+   <div class="modal" id="loginModal">
         <div class="modal-content">
             <div class="modal-header">
                 <h2>用户登录</h2>
@@ -822,20 +813,57 @@ main {
             <div class="modal-body">
                 <form id="loginForm">
                     <div class="form-group">
-                        <label for="loginUsername">用户名/邮箱</label>
+                        <label for="loginUsername"><i class="fas fa-user"></i> 用户名/邮箱</label>
                         <input type="text" id="loginUsername" class="form-control" placeholder="请输入用户名或邮箱" required>
                     </div>
                     <div class="form-group">
-                        <label for="loginPassword">密码</label>
+                        <label for="loginPassword"><i class="fas fa-lock"></i> 密码</label>
                         <input type="password" id="loginPassword" class="form-control" placeholder="请输入密码" required>
                     </div>
                     <div class="remember-me">
                         <input type="checkbox" id="remember">
                         <label for="remember">记住我</label>
                     </div>
-                    <button type="submit" class="submit-btn">登录</button>
+                    <button type="submit" class="submit-btn"><i class="fas fa-sign-in-alt"></i> 登录</button>
                     <div class="form-footer">
                         <p>还没有账号？<a href="#" id="switchToRegister">立即注册</a ></p >
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>用户注册</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerUsername"><i class="fas fa-user"></i> 用户名</label>
+                        <input type="text" id="registerUsername" class="form-control" placeholder="请输入用户名" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail"><i class="fas fa-envelope"></i> 邮箱</label>
+                        <input type="email" id="registerEmail" class="form-control" placeholder="请输入邮箱" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword"><i class="fas fa-lock"></i> 密码</label>
+                        <input type="password" id="registerPassword" class="form-control" placeholder="请输入密码" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword"><i class="fas fa-lock"></i> 确认密码</label>
+                        <input type="password" id="confirmPassword" class="form-control" placeholder="请再次输入密码" required>
+                    </div>
+                    <div class="remember-me">
+                        <input type="checkbox" id="agreeTerms">
+                        <label for="agreeTerms">我已阅读并同意<a href="#">用户协议</a ></label>
+                    </div>
+                    <button type="submit" class="submit-btn"><i class="fas fa-user-plus"></i> 注册</button>
+                    <div class="form-footer">
+                        <p>已有账号？<a href="#" id="switchToLogin">立即登录</a ></p >
                     </div>
                 </form>
             </div>
@@ -845,18 +873,18 @@ main {
     <main class="container">
         <div class="content-wrapper">
             <aside class="sidebar-left">
-                <h3 class="category-title"><i class="fas fa-th-list"></i></h3>
+                <h3 class="category-title"><i class="fas fa-th-list"></i> 图书分类</h3>
                 <ul class="category-list">
-                    <li><i class="fas fa-book"></i>文学小说</li>
-                    <li><i class="fas fa-chart-line"></i>经济管理</li>
-                    <li><i class="fas fa-laptop-code"></i>科学技术</li>
-                    <li><i class="fas fa-users"></i>人文社科</li>
-                    <li><i class="fas fa-palette"></i>生活艺术</li>
-                    <li><i class="fas fa-graduation-cap"></i>教育学习</li>
-                    <li><i class="fas fa-child"></i>儿童读物</li>
-                    <li><i class="fas fa-paint-brush"></i>漫画绘本</li>
-                    <li><i class="fas fa-pencil-alt"></i>考试教材</li>
-                    <li><i class="fas fa-language"></i>外语学习</li>
+                    <li><i class="fas fa-book"></i> 文学小说</li>
+                    <li><i class="fas fa-chart-line"></i> 经济管理</li>
+                    <li><i class="fas fa-laptop-code"></i> 科学技术</li>
+                    <li><i class="fas fa-users"></i> 人文社科</li>
+                    <li><i class="fas fa-palette"></i> 生活艺术</li>
+                    <li><i class="fas fa-graduation-cap"></i> 教育学习</li>
+                    <li><i class="fas fa-child"></i> 儿童读物</li>
+                    <li><i class="fas fa-paint-brush"></i> 漫画绘本</li>
+                    <li><i class="fas fa-pencil-alt"></i> 考试教材</li>
+                    <li><i class="fas fa-language"></i> 外语学习</li>
                 </ul>
             </aside>
             <section class="content-main">
@@ -865,7 +893,6 @@ main {
         <div class="hot-books">
             <div class="book-card">
                 <div class="book-img">
-                <img src="one.jpg" alt="C语言程序设计">    
                     <div style="background-color:#3498db; color:white; display:flex; align-items:center; justify-content:center; height:100%;">
                         C语言程序设计
                     </div>
@@ -874,7 +901,7 @@ main {
                             <h3>C语言程序设计</h3>
                             <p>作者：谭浩强</p >
                             <p>出版社：机械工业出版社</p >
-                            <p>简介：全书遵循"由浅入深、理论结合实践"原则。</p >
+                            <p>简介：全书遵循"由浅入深、理论结合实践"原则</p >
                         </div>
                     </div>
                 </div>
@@ -886,7 +913,6 @@ main {
             
             <div class="book-card">
                 <div class="book-img">
-                    <img src="two.jpg" alt="百年孤独">
                     <div style="background-color:#e74c3c; color:white; display:flex; align-items:center; justify-content:center; height:100%;">
                         百年孤独
                     </div>
@@ -895,19 +921,18 @@ main {
                             <h3>百年孤独</h3>
                             <p>作者：加西亚·马尔克斯</p >
                             <p>出版社：人民邮电出版社</p >
-                            <p>简介：魔幻现实主义巨著。</p >
+                            <p>简介：魔幻现实主义巨著</p >
                         </div>
                     </div>
                 </div>
                 <div class="book-info">
                     <div class="book-title">百年孤独</div>
-                    <div class="book-price">¥99.00</div>
+                    <div class="book-price">¥39.00</div>
                 </div>
             </div>
             
             <div class="book-card">
                 <div class="book-img">
-                <img src="six.jpg" alt="月亮与六便士">
                     <div style="background-color:#2ecc71; color:white; display:flex; align-items:center; justify-content:center; height:100%;">
                         月亮与六便士
                     </div>
@@ -916,19 +941,18 @@ main {
                             <h3>月亮与六便士</h3>
                             <p>作者：Donald Norman</p >
                             <p>出版社：中信出版社</p >
-                            <p>简介:讲述画家挣脱世俗，追求艺术理想。</p >
+                            <p>简介：讲述画家挣脱世俗，追求艺术理想</p >
                         </div>
                     </div>
                 </div>
                 <div class="book-info">
                     <div class="book-title">月亮与六便士</div>
-                    <div class="book-price">¥68.00</div>
+                    <div class="book-price">¥48.00</div>
                 </div>
             </div>
             
             <div class="book-card">
                 <div class="book-img">
-                    <img src="book4.jpg" alt="人类简史">
                     <div style="background-color:#9b59b6; color:white; display:flex; align-items:center; justify-content:center; height:100%;">
                         人类简史
                     </div>
@@ -943,13 +967,12 @@ main {
                 </div>
                 <div class="book-info">
                     <div class="book-title">人类简史</div>
-                    <div class="book-price">¥68.00</div>
+                    <div class="book-price">¥38.00</div>
                 </div>
             </div>
             
             <div class="book-card">
                 <div class="book-img">
-                     <img src="book5.jpg" alt="原则">
                     <div style="background-color:#f39c12; color:white; display:flex; align-items:center; justify-content:center; height:100%;">
                         原则
                     </div>
@@ -958,19 +981,18 @@ main {
                             <h3>原则</h3>
                             <p>作者：Ray Dalio</p >
                             <p>出版社：中信出版社</p >
-                            <p>简介：达利欧的生活工作智慧，理性决策的行动指南。</p >
+                            <p>简介：达利欧的生活工作智慧，理性决策的行动指南</p >
                         </div>
                     </div>
                 </div>
                 <div class="book-info">
                     <div class="book-title">原则</div>
-                    <div class="book-price">¥98.00</div>
+                    <div class="book-price">¥48.00</div>
                 </div>
             </div>
             
             <div class="book-card">
                 <div class="book-img">
-                    <img src="book6.jpg" alt="三体">
                     <div style="background-color:#1abc9c; color:white; display:flex; align-items:center; justify-content:center; height:100%;">
                         三体
                     </div>
@@ -979,7 +1001,7 @@ main {
                             <h3>三体</h3>
                             <p>作者：刘慈欣</p >
                             <p>出版社：重庆出版社</p >
-                            <p>简介：科幻巨著，讲述文明间的交流与博弈。</p >
+                            <p>简介：科幻巨著，讲述文明间的交流与博弈</p >
                         </div>
                     </div>
                 </div>
@@ -1005,69 +1027,69 @@ main {
             <tbody>
                 <tr>
                     <td>《软技能：代码之外的生存指南》</td>
-                    <td>John Sonmez</td>
+                    <td>John Z.Sonmez</td>
                     <td>人民邮电出版社</td>
                     <td>¥49.00</td>
                 </tr>
                 <tr>
                     <td>《代码大全》</td>
                     <td>Steve McConnell</td>
-                    <td>清华大学出版社</td>
+                    <td>电子工业出版社</td>
                     <td>¥59.00</td>
                 </tr>
                 <tr>
                     <td>《程序员修炼之道》</td>
-                    <td>王强</td>
+                    <td>Andy Hunt</td>
                     <td>机械工业出版社</td>
                     <td>¥49.00</td>
                 </tr>
                 <tr>
                     <td>《Java编程思想》</td>
-                    <td>赵丽</td>
-                    <td>电子科技大学出版社</td>
-                    <td>¥39.00</td>
+                    <td>Bruce Eckel</td>
+                    <td>机械工业出版社</td>
+                    <td>¥59.00</td>
                 </tr>
                 <tr>
                     <td>《算法导论》</td>
-                    <td>刘伟</td>
-                    <td>北京大学出版社</td>
-                    <td>¥35.00</td>
+                    <td>Thmoas H.Cormen</td>
+                    <td>麻省理工学院出版社</td>
+                    <td>¥45.00</td>
                 </tr>
             </tbody>
-        </table>            
+        </table>
     </div>
 </section>
             <aside class="sidebar-right">
                 <div class="filter-menu">
                     <h3 class="category-title">筛选条件</h3>
                     <div class="filter-options">
-                        <button class="filter-btn">价格从低到高</button>
-                        <button class="filter-btn">价格从高到低</button>
-                        <button class="filter-btn">评分最高</button>
+                        <button class="filter-btn"><i class="fas fa-sort-amount-down"></i> 价格从低到高</button>
+                        <button class="filter-btn"><i class="fas fa-sort-amount-up"></i> 价格从高到低</button>
+                        <button class="filter-btn"><i class="fas fa-star"></i> 评分最高</button>
                     </div>
                     <div class="filter-options">
-                        <button class="filter-btn">文学类</button>
-                        <button class="filter-btn">科技类</button>
-                        <button class="filter-btn">经管类</button>
+                        <button class="filter-btn"><i class="fas fa-book"></i> 文学类</button>
+                        <button class="filter-btn"><i class="fas fa-laptop"></i> 科技类</button>
+                        <button class="filter-btn"><i class="fas fa-chart-line"></i> 经管类</button>
                     </div>
                 </div>
 
                 <div class="promotion">
-                    <h3 class="category-title">促销活动</h3>
+                    <h3 class="category-title"><i class="fas fa-tags"></i> 促销活动</h3>
                     <div class="promo-item">
-                        <div class="promo-title">全场满200减30</div>
+                        <div class="promo-title"><i class="fas fa-shopping-cart"></i> 全场满200减30</div>
                         <div class="promo-desc">购物满200元立减30元，上不封顶</div>
                     </div>
                     <div class="promo-item">
-                        <div class="promo-title">新用户专享优惠</div>
+                        <div class="promo-title"><i class="fas fa-user-plus"></i> 新用户专享优惠</div>
                         <div class="promo-desc">新用户注册即送50元优惠券</div>
                     </div>
                     <div class="promo-item">
-                        <div class="promo-title">会员日特惠</div>
+                        <div class="promo-title"><i class="fas fa-crown"></i> 会员日特惠</div>
                         <div class="promo-desc">每月15日会员专享8折优惠</div>
                     </div>
                     <div class="promo-item">
-                        <div class="promo-title">限时秒杀</div>
+                        <div class="promo-title"><i class="fas fa-bolt"></i> 限时秒杀</div>
                         <div class="promo-desc">每日10点热门图书限时秒杀</div>
                     </div>
                 </div>
@@ -1086,47 +1108,73 @@ main {
     </footer>
 
     <script>
-        
         const loginLink = document.getElementById('loginLink');
         const loginModal = document.getElementById('loginModal');
-        const closeBtn = document.querySelector('.close-btn');
+        const registerModal = document.getElementById('registerModal');
+        const closeBtns = document.querySelectorAll('.close-btn');
         const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
         const switchToRegister = document.getElementById('switchToRegister');
+        const switchToLogin = document.getElementById('switchToLogin');
 
-        
         loginLink.addEventListener('click', (e) => {
             e.preventDefault();
             loginModal.style.display = 'flex';
         });
 
-       
-        closeBtn.addEventListener('click', () => {
-            loginModal.style.display = 'none';
+        closeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                loginModal.style.display = 'none';
+                registerModal.style.display = 'none';
+            });
         });
 
-        
         window.addEventListener('click', (e) => {
             if (e.target === loginModal) {
                 loginModal.style.display = 'none';
             }
+            if (e.target === registerModal) {
+                registerModal.style.display = 'none';
+            }
         });
 
-        
         switchToRegister.addEventListener('click', (e) => {
             e.preventDefault();
-            alert('跳转到注册页面');
+            loginModal.style.display = 'none';
+            registerModal.style.display = 'flex';
         });
 
-        
+        switchToLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            registerModal.style.display = 'none';
+            loginModal.style.display = 'flex';
+        });
+
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const username = document.getElementById('loginUsername').value;
             const password = document.getElementById('loginPassword').value;
             
-            
             alert(`登录成功！\n用户名: ${username}`);
             loginModal.style.display = 'none';
             loginForm.reset();
+        });
+
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('registerUsername').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('两次输入的密码不一致，请重新输入！');
+                return;
+            }
+            
+            alert(`注册成功！\n用户名: ${username}\n邮箱: ${email}`);
+            registerModal.style.display = 'none';
+            registerForm.reset();
         });
     </script>
 </body>
